@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase-server";
 import TambahKasForm from "./tambah-kas-form";
 import HapusKasButton from "./hapus-kas-button";
+import AdminNav from "../admin-nav";
 
 function rupiah(angka) {
   return new Intl.NumberFormat("id-ID", {
@@ -45,9 +46,11 @@ export default async function AdminKasPage() {
   const saldo = totalMasuk - totalKeluar;
 
   return (
-    <main className="min-h-screen bg-slate-100 px-6 py-10">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+  <main className="min-h-screen bg-slate-100 px-6 py-10">
+    <div className="max-w-6xl mx-auto">
+      <AdminNav />
+
+      <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <h1 className="text-3xl font-bold mb-2">Kelola KAS RT</h1>
             <p className="text-slate-600">

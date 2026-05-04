@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase-server";
-import LogoutButton from "./logout-button";
+import AdminNav from "./admin-nav";
 
 export default async function AdminPage() {
   const supabase = await createClient();
@@ -16,16 +16,14 @@ export default async function AdminPage() {
 
   return (
     <main className="min-h-screen bg-slate-100 px-6 py-10">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
+        <AdminNav />
+
         <div className="bg-white rounded-2xl shadow p-8 mb-6">
           <h1 className="text-3xl font-bold mb-2">Dashboard Admin RT</h1>
           <p className="text-slate-600">
             Anda login sebagai: <strong>{user.email}</strong>
           </p>
-
-          <div className="mt-5">
-            <LogoutButton />
-          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-5">
@@ -35,7 +33,7 @@ export default async function AdminPage() {
           >
             <h2 className="text-xl font-bold mb-2">Data Warga</h2>
             <p className="text-slate-600">
-              Tambah, lihat, dan kelola data warga.
+              Tambah, lihat, edit, dan hapus data warga.
             </p>
           </Link>
 
@@ -45,7 +43,7 @@ export default async function AdminPage() {
           >
             <h2 className="text-xl font-bold mb-2">KAS RT</h2>
             <p className="text-slate-600">
-              Input pemasukan dan pengeluaran kas.
+              Input pemasukan, pengeluaran, dan kelola laporan kas.
             </p>
           </Link>
 
@@ -55,7 +53,7 @@ export default async function AdminPage() {
           >
             <h2 className="text-xl font-bold mb-2">Pengumuman</h2>
             <p className="text-slate-600">
-              Buat dan kelola informasi untuk warga.
+              Buat informasi dan pengumuman untuk warga.
             </p>
           </Link>
         </div>

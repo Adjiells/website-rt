@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase-server";
 import EditKasForm from "./edit-kas-form";
+import AdminNav from "../../../admin-nav";
 
 export default async function EditKasPage({ params }) {
   const supabase = await createClient();
@@ -28,7 +29,8 @@ export default async function EditKasPage({ params }) {
 
   return (
     <main className="min-h-screen bg-slate-100 px-6 py-10">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-6xl mx-auto">
+        <AdminNav />
         <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <h1 className="text-3xl font-bold mb-2">Edit Transaksi KAS</h1>
